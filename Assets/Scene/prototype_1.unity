@@ -388,6 +388,8 @@ MonoBehaviour:
   pathPrefabs:
   - {fileID: 1101355783788418, guid: 5deca193c89d92141beb69a2b47b5f28, type: 2}
   - {fileID: 1764301078889234, guid: 177905296101f2449bc16b270b490e71, type: 2}
+  spawnDistance: 15
+  pathLengths: []
   player: {fileID: 1033313694}
 --- !u!4 &1211212458
 Transform:
