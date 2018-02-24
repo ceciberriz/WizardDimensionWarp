@@ -20,11 +20,16 @@ public class generateSegment : MonoBehaviour {
 
 		for (int i = 0; i < pathPrefabs.Length; i++) {
 			Vector3 pos = transform.position + new Vector3(0, 0, endLength);
-			GameObject pathSegment = (GameObject)Instantiate (pathPrefabs[i], pos, transform.rotation);
+        
+            GameObject pathSegment = (GameObject)Instantiate (pathPrefabs[i], pos, transform.rotation);
 			pathSegment.transform.SetParent (transform);
-			pathLengths [i] = CalculateZSize (pathSegment);
+
+            float len = CalculateZSize(pathSegment);
+            pathLengths[i] = len;
 			pathSegments[i] = pathSegment;
-		}
+
+            if (i != pathPrefabs.Length - 1) endLength += len;
+        }
 	}
 
 	private float CalculateZSize(GameObject obj)
@@ -42,7 +47,7 @@ public class generateSegment : MonoBehaviour {
 	}
 		
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Vector3 distance = player.position - transform.position;
 		double zDist = Vector3.Dot(distance, transform.forward.normalized);
 
