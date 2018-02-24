@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class RotateScript : MonoBehaviour
 {
-    public float rotateSpeed = 7.5f;
+    public float rotateSpeed = 10f;
     public Transform player;
 
     private const int numPlatforms = 3;
@@ -37,8 +37,9 @@ public class RotateScript : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, m_goalRot, Time.deltaTime * rotateSpeed);
-                player.position = Vector3.Slerp(player.position, new Vector3(0, player.position.y, player.position.z), Time.deltaTime * rotateSpeed);
+                //transform.rotation = Quaternion.Lerp(transform.rotation, m_goalRot, Time.deltaTime * rotateSpeed);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, m_goalRot, rotateSpeed);
+                player.position = Vector3.Lerp(player.position, new Vector3(0, player.position.y, player.position.z), Time.deltaTime * rotateSpeed);
             }
         }
     }
