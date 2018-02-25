@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class generateSegment : MonoBehaviour {
+
+public class GenerateSegment : MonoBehaviour {
 	public GameObject[] pathPrefabs;
 	public float spawnDistance = 15;
 	private GameObject[] pathSegments;
@@ -12,9 +13,11 @@ public class generateSegment : MonoBehaviour {
 	private int nextPlatform = 1;
 
 	public Transform player;
+	private System.Random rnd;
 
-	// Use this for initialization
 	void Start () {
+		rnd = new System.Random();
+
 		pathSegments = new GameObject[pathPrefabs.Length];
 		pathLengths = new float[pathPrefabs.Length];
 
@@ -28,13 +31,13 @@ public class generateSegment : MonoBehaviour {
             pathLengths[i] = len;
 			pathSegments[i] = pathSegment;
 
-            if (i != pathPrefabs.Length - 1) endLength += len;
+            if (i != 0) endLength += len;
         }
 	}
 
 	private float CalculateZSize(GameObject obj)
 	{
-		Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+		Bounds bounds = new Bounds(obj.transform.position, Vector3.zero);
 
 		foreach(Renderer renderer in obj.GetComponentsInChildren<Renderer>())
 		{
@@ -46,7 +49,7 @@ public class generateSegment : MonoBehaviour {
 		return bounds.size.z;
 	}
 		
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		Vector3 distance = player.position - transform.position;
 		double zDist = Vector3.Dot(distance, transform.forward.normalized);
@@ -58,6 +61,7 @@ public class generateSegment : MonoBehaviour {
 
 	void placeNextPlatform () {
 		pathSegments [nextPlatform].transform.position = new Vector3 (0, 0, endLength);
+		pathSegments [nextPlatform].transform.localRotation = Quaternion.Euler(new Vector3 (0, 0, 120 * rnd.Next (0, 3)));
 		endLength += pathLengths[nextPlatform];
 		nextPlatform = (nextPlatform + 1) % pathSegments.Length;
 	}
