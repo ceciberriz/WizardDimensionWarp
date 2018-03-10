@@ -62,7 +62,8 @@ public class PlayerControl : MonoBehaviour {
 
             if (transform.position.y <= -10)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                gameOver = true;
+                gameOverText.gameObject.SetActive(true);
             }
         } else
         {
