@@ -1,20 +1,19 @@
 fileFormatVersion: 2
-guid: a0f1a20d8a932664cb6873330a0e81e5
-timeCreated: 1519512841
+guid: 565dec769d6a5cf44aebc5258a21be4d
+timeCreated: 1520111287
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube9
     400000: //RootNode
-    400002: pCube9
-    2300000: pCube9
-    3300000: pCube9
-    4300000: pCube9
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: wizardNPC_unwrapped:Mesh
+    9500000: //RootNode
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
@@ -44,7 +43,7 @@ ModelImporter:
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
+    importCameras: 0
     importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -81,7 +80,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

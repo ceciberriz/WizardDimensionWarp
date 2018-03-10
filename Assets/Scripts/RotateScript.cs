@@ -22,6 +22,8 @@ public class RotateScript : MonoBehaviour
 
     void Update()
     {
+        if (PlayerControl.gameOver) return;
+
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
         if (!m_turn && h != 0)
         {
@@ -39,6 +41,8 @@ public class RotateScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerControl.gameOver) return;
+
         if (m_turn)
         {
             if (Quaternion.Angle(transform.rotation, m_goalRot) <= 0.1f)

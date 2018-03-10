@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GenerateSegment : MonoBehaviour {
 	public GameObject[] pathPrefabs;
-	public float spawnDistance = 15;
+	public float spawnDistance = 30;
 	private GameObject[] pathSegments;
-	public float[] pathLengths;
+	private float[] pathLengths;
 
 	private float endLength = -20;
 	private int nextPlatform = 1;

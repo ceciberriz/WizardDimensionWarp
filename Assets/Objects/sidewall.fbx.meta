@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d6fca459c27723242b077a4d7e7ec655
-timeCreated: 1519519288
+timeCreated: 1520112895
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -12,7 +12,7 @@ ModelImporter:
     4300000: Cube
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
